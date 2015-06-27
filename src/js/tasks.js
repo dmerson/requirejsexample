@@ -1,4 +1,4 @@
-define ("tasks",["jquery","taskdata","taskRenderer"],function($,taskdata,taskRenderer){
+define ("tasks",["jquery","data/taskdata","renderers/taskRenderer"],function($,taskdata,taskRenderer){
     /* task management */
 
     function add() {
