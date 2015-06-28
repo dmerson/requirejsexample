@@ -1,7 +1,7 @@
-define(["jquery"],function($){
+define(["jquery","text!templates/taskTemplate.html"],function($,taskTemplate){
     /* create DOM task elements */
 
-    var taskTemplate = '<li class="task"><input class="complete" type="checkbox" /> <input class="description" type="text" placeholder="Enter task description..." /> <button class="delete-button">Delete</button></li>';
+
 
     function renderTasks(tasks) {
         var elementArray = $.map(tasks, _renderTask);
