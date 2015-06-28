@@ -1,19 +1,25 @@
 describe("the Task Module",function(){
+    var injector;
+
+    beforeEach(function(done){
+        require(["Squire",function(Squire){
+            injector=new Squire();
+            done();
+        }])
+    });
+    afterEach(function(){
+        injector.remove();
+    });
+
     describe("add function",function(){
         it("calls taskRenderer.renderNew",function(done){
 
-            define("renderers/taskRenderer",[],function(){
-                return {
-                    renderNew:function(){
-
-                    }
-                };
+            injector.mock("renderers/taskRenderer",{
+                renderNew:function(){}
             });
-            define("data/taskData",[],function(){
-                return {};
-            })
+            injector.mock("data/taskData",{});
 
-            require(["tasks","renderers/taskRenderer"],function(tasks,taskRenderer){
+            injector.require(["tasks","renderers/taskRenderer"],function(tasks,taskRenderer){
                 spyOn(taskRenderer,"renderNew");
                 tasks.add();
                 expect(taskRenderer.renderNew).toHaveBeenCalled();
