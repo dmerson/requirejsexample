@@ -1,2 +1,1 @@
-node build/r.js -o name=main  baseUrl=src/js mainConfigFile=src/js/main.js out=src/js/main-optimize.min.js op
-timize=none
+node build/r.js -o name=main  baseUrl=src/js mainConfigFile=src/js/main.js out=src/js/main-optimize.min.js generateSourceMaps=true preserveLicenseComments=false optimize=uglify2
